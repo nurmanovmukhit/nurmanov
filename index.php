@@ -4,7 +4,7 @@
  *
  *Telegram : @TILON
  */
-$API_KEY = 'token';
+$API_KEY = '1206351513:AAG5qE1VIEe1Yv_ONc3dVToSRkOp4XpeH4s';
 ##------------------------------##
 define('API_KEY',$API_KEY);
 function bot($method,$datas=[]){
@@ -53,7 +53,7 @@ $start_time = round(microtime(true) * 1000);
 <?php
 /*Ushbu kod: Xurrambek Obiddinov (https://t.me/uzfox) tomonidan yozilgan. Iltimos, mualliflik huquqi hurmat qilinsin!*/
 ob_start();
-define("uzfox","token");
+define("uzfox","1206351513:AAG5qE1VIEe1Yv_ONc3dVToSRkOp4XpeH4s");
 $admin = "77777";
 $botname = "botuser";
 $arays = array($arays,$admin);
