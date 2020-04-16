@@ -1,3 +1,76 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@nurmanovmukhit 
+nurmanovmukhit
+/
+obmennik
+1
+0
+0
+ Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights Settings
+obmennik/uzfoxofficialbot (1).php /
+@nurmanovmukhit nurmanovmukhit Update uzfoxofficialbot (1).php
+e8bd4b5 1 minute ago
+1418 lines (1355 sloc)  47.7 KB
+  
+<?php 
+/**
+ *Author: Tilon
+ *
+ *Telegram : @TILON
+ */
+$API_KEY = 'token';
+##------------------------------##
+define('API_KEY',$API_KEY);
+function bot($method,$datas=[]){
+    $url = "https://api.telegram.org/bot".API_KEY."/".$method;
+    $ch = curl_init();
+    curl_setopt($ch,CURLOPT_URL,$url);
+    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($ch,CURLOPT_POSTFIELDS,$datas);
+    $res = curl_exec($ch);
+    if(curl_error($ch)){
+        var_dump(curl_error($ch));
+    }else{
+        return json_decode($res);
+    }
+}
+ 
+ function sendaction($chat_id, $action){
+ bot('sendchataction',[
+ 'chat_id'=>$chat_id,
+ 'action'=>$action
+ ]);
+ }
+ //====================ᵗᶦᵏᵃᵖᵖ======================//
+$update = json_decode(file_get_contents('php://input'));
+$message = $update->message;
+$from_id = $message->from->id;
+$chat_id = $message->chat->id;
+$text = $message->text;
+//====================ᵗᶦᵏᵃᵖᵖ======================//
+if(preg_match('/^\/([Ss]tart)/',$text)){
+$start_time = round(microtime(true) * 1000);
+      $send=  bot('sendmessage', [
+                'chat_id' => $chat_id,
+                'text' =>"Tezlik:",
+            ])->result->message_id;
+        
+                    $end_time = round(microtime(true) * 1000);
+                    $time_taken = $end_time - $start_time;
+                    bot('editMessagetext',[
+                        "chat_id" => $chat_id,
+                        "message_id" => $send,
+                        "text" => "Tezlik:" . $time_taken . "ms",
+                    ]);
+}
+?>
 <?php
 /*Ushbu kod: Xurrambek Obiddinov (https://t.me/uzfox) tomonidan yozilgan. Iltimos, mualliflik huquqi hurmat qilinsin!*/
 ob_start();
@@ -1364,3 +1437,15 @@ uzfox("answerCallbackQuery",[
 "show_alert"=>true,
 ]);
 }
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
