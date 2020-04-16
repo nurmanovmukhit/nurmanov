@@ -1,24 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@nurmanovmukhit 
-nurmanovmukhit
-/
-obmennik
-1
-0
-0
- Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights Settings
-obmennik/uzfoxofficialbot (1).php /
-@nurmanovmukhit nurmanovmukhit Update uzfoxofficialbot (1).php
-e8bd4b5 1 minute ago
-1418 lines (1355 sloc)  47.7 KB
-  
 <?php 
 /**
  *Author: Tilon
@@ -74,7 +53,7 @@ $start_time = round(microtime(true) * 1000);
 <?php
 /*Ushbu kod: Xurrambek Obiddinov (https://t.me/uzfox) tomonidan yozilgan. Iltimos, mualliflik huquqi hurmat qilinsin!*/
 ob_start();
-define("mukhitnurmanov","1206351513:AAG5qE1VIEe1Yv_ONc3dVToSRkOp4XpeH4s");
+define("uzfox","token");
 $admin = "77777";
 $botname = "botuser";
 $arays = array($arays,$admin);
@@ -138,10 +117,10 @@ $status = $retus->result->status;
 "disable_web_page_preview"=>true,
 "reply_markup"=>json_encode([
 "inline_keyboard"=>[
-[["text"=>"➕ Ag'za boliw","url"=>"https://t.me/joinchat/AAAAAEVk0Nb-d-s6_tFkBg"],],
-[["text"=>"➕ Ag'za boliw","url"=>"https://t.me/joinchat/AAAAAE4Y-eUURAmGAah3Ng"],],
-[["text"=>"➕ Ag'za boliw","url"=>"https://t.me/joinchat/AAAAAE-32sfHGvW16kIKMg"],],
-[["text"=>"✅ Tastiyiqlaw","callback_data"=>"result"],],
+[["text"=>"➕ A‘zo bo‘lish","url"=>"https://t.me/joinchat/AAAAAFg8nNx56BwCqg3IZg"],],
+[["text"=>"➕ A‘zo bo‘lish","url"=>"https://t.me/joinchat/AAAAAEs4IUk-38yLLozvTA"],],
+[["text"=>"➕ A‘zo bo‘lish","url"=>"https://t.me/joinchat/AAAAAEu9h62KlBOKH0FWag"],],
+[["text"=>"✅ Tasdiqlash","callback_data"=>"result"],],
 ]
 ]),
 ]);  
@@ -157,7 +136,7 @@ sleep(2);
             file_put_contents("uzfox/".$file.".pul","$user");
              uzfox("sendMessage",[
              "chat_id"=>$file,
-             "text"=>"<b>Siz shaqirg'an </b>, <a href='tg://user?id=".$id."'>".$firstname."</a> <b>bizdin'kanallarimizdan shig'ip ketkenligi ushin sizge ".$minimal." sum jariyma berildi.</b>",
+             "text"=>"<b>Sizning do'stingiz</b>, <a href='tg://user?id=".$id."'>".$firstname."</a> <b>bizning kanallarimizdan chiqib ketgani uchun sizga ".$minimal." so'm jarima berildi.</b>",
              "parse_mode"=>"html",
              "reply_markup"=>$menu,
              ]);
@@ -176,13 +155,13 @@ function phonenumber($id){
      uzfox("sendPhoto",[
     "chat_id"=>$id,
 "photo"=>"https://t.me/mr_aash/7",
-    "caption"=>"<b>Assalawma aleykum!</b>\n<b>Pul islew isenimli boliwi ushin, to'mendegi «📲 Telefon nomerdi jiberiw» knopkasin basin':</b>",
+    "caption"=>"<b>Salom, hurmatli foydalanuvchi!</b>\n<b>Pul ishlash ishonchli bo'lishi uchun, pastdagi «📲 Telefon raqamni yuborish» tugmasini bosing:</b>",
     "parse_mode"=>"html",
     "reply_markup"=>json_encode([
       "resize_keyboard"=>true,
       "one_time_keyboard"=>true,
       "keyboard"=>[
-        [["text"=>"📲 Telefon nomerdi jiberiw","request_contact"=>true],],
+        [["text"=>"📲 Telefon raqamni yuborish","request_contact"=>true],],
 ]
 ]),
 ]);  
@@ -191,7 +170,7 @@ return false;
 }
 
 function reyting(){
-    $text = "🏆 <b>TOP 20 en' ko'p pul islegenler:</b>\n\n";
+    $text = "🏆 <b>TOP 20 ta eng koʻp pul ishlagan foydalanuvchilar:</b>\n\n";
     $daten = [];
     $rev = [];
     $fayllar = glob("./uzfox/*.*");
@@ -210,7 +189,7 @@ function reyting(){
     for($i=0;$i<20;$i+=1){
         $order = $i+1;
         $id = $daten["$reversed[$i]"];
-        $text.= "<b>{$order}</b>. <a href='tg://user?id={$id}'>{$id}</a> - "."<code>".$reversed[$i]."</code>"." <b>sum</b>"."\n";
+        $text.= "<b>{$order}</b>. <a href='tg://user?id={$id}'>{$id}</a> - "."<code>".$reversed[$i]."</code>"." <b>soʻm</b>"."\n";
     }
     return $text;
 }
@@ -1437,15 +1416,3 @@ uzfox("answerCallbackQuery",[
 "show_alert"=>true,
 ]);
 }
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
