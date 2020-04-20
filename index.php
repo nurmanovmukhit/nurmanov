@@ -1,6 +1,6 @@
 <?php
 ob_start();
-define('API_KEY','BOT_TOKENI');
+define('API_KEY','1206351513:AAG5qE1VIEe1Yv_ONc3dVToSRkOp4XpeH4s');
 $admin = "910761405";//admin id raqami
 $kanalimz ="@DASTURLAR_PLAYMARKET_OYINLAR";//Kanalingiz @ bilan
    function del($nomi){
